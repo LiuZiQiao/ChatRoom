@@ -32,7 +32,7 @@
 				<table width="100%" height="100%">
 						<tr>
 							<td>用户名：</td>
-							<td><input type="text" name="username" class="login"></td>
+							<td><input type="text" name="usernum" class="login"></td>
 						</tr>
 					</table>
 				</td>

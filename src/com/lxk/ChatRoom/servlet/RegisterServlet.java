@@ -15,18 +15,19 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import com.lxk.ChatRoom.bean.User;
 import com.lxk.ChatRoom.service.UserService;
+import com.lxk.ChatRoom.utils.BaseServlet;
 
-public class RegisterServlet extends HttpServlet {
+public class RegisterServlet extends BaseServlet {
 
 	public String register(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 //		Map<String, String[]> map = request.getParameterMap();
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;utf-8");
+		response.setCharacterEncoding("utf-8");
 		String usernum = null ;
 		String password = request.getParameter("password");
-		String a = request.getParameter("age");
-		Integer age = Integer.valueOf(a);
+		int age = Integer.parseInt(request.getParameter("age"));
 		String realname = request.getParameter("realname");
 		String sex = request.getParameter("sex");
 		String type = "user";
@@ -56,10 +57,11 @@ public class RegisterServlet extends HttpServlet {
 			}else{
 				request.setAttribute("id",id);
 				PrintWriter pw = response.getWriter();
-				pw.write("注册id为:"+id);
-				pw.write("5秒后将跳转到登陆页面");
-				Thread.sleep(5000);
-				response.sendRedirect(request.getContextPath()+"/index.jsp");
+				pw.write("<h3>注册id为:</h3>"+id);
+				pw.write("<br/><h4>5秒后将跳转到登陆页面</h4>");
+
+				response.setHeader("refresh","5,/ChatRoom/index.jsp");
+//				response.sendRedirect(request.getContextPath()+"/index.jsp");
 				return null;
 			}
 		} catch (Exception e) {

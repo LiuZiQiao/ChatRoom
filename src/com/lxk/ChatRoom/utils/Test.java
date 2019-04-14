@@ -2,10 +2,20 @@ package com.lxk.ChatRoom.utils;
 
 import java.util.Random;
 
+import com.lxk.ChatRoom.bean.User;
+import com.lxk.ChatRoom.dao.UserDao;
+import com.lxk.ChatRoom.dao.UserDaoImpl;
+
 public class Test {
 	public static void main(String[] args) {
-		String id = CreateId();
-		System.out.println(id);
+		UserDao ud = new UserDaoImpl();
+		User user = new User();
+		user.setUsernum("lxk");
+		user.setPassword("123");
+		System.out.println(ud.login(user));
+		
+//		String id = CreateId();
+//		System.out.println(id);
 //		while(true){
 //			if(id.length() == 6 && !id.substring(0,1).equals('0') ){
 ////				user.setUsername(id);

@@ -14,10 +14,11 @@ public class UserDaoImpl implements UserDao {
 	public User login(User user) {
 		QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
 		
-		String sql = "select*from user where username=? and password=?";
+		String sql = "select*from user where usernum=? and password=?";
 		User existUser;
 		try {
-			existUser = queryRunner.query(sql, new BeanHandler<User>(User.class),user.getUsername(),user.getPassword());
+			existUser = queryRunner.query(sql, new BeanHandler<User>(User.class),user.getUsernum(),user.getPassword());
+			System.out.println("UserDaoImpl UexistUser:"+existUser);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,7 +34,7 @@ public class UserDaoImpl implements UserDao {
 		QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
 		
 		String sql = "INSERT INTO USER VALUE(NULL,?,?,?,?,?,?)";
-		Object[] params = {user.getUsername(),user.getPassword(),user.getRealname(),user.getAge(),user.getSex(),user.getType()};
+		Object[] params = {user.getUsernum(),user.getPassword(),user.getRealname(),user.getAge(),user.getSex(),user.getType()};
 		int res;
 		try {
 //			res = queryRunner.batch(sql, params).length;
