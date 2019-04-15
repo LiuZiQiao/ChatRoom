@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>聊天室</title>
 <link href="CSS/style.css" rel="stylesheet">
-<script type="text/javascript" src="${ pageContext.request.contextPath }/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 <script type="text/javascript">
 var sysBBS = "<span style='font-size:14px; line-height:30px;'>欢迎来到小坤聊天室，请遵守聊天室规则，并使文明用语。</span><br><span style='line-height:22px;'>";
 	window.setInterval("showContent();",1000);
@@ -97,23 +97,23 @@ var sysBBS = "<span style='font-size:14px; line-height:30px;'>欢迎来到小坤
 		cellpadding="0" cellspacing="0">
 		<tr>
 			<td width="165" valign="top" bgcolor="#f6fded" id="online" style="padding:5px">在线人员列表</td>
-			<td width="613" height="200px" valign="top"
-				background="images/main_bj.jpg" bgcolor="#FFFFFF"
-				style="padding:5px; ">
-				<div style="height:290px; overflow:hidden" id="content">聊天内容</div></td>
+			<td width="613" height="200px" valign="top"	background="images/main_bj.jpg" bgcolor="#FFFFFF"style="padding:5px; ">
+				<div style="height:290px; overflow:hidden" id="content">
+					聊天内容
+				</div>
+			</td>
 
 		</tr>
 	</table>
 	<table width="778" height="95" border="0" align="center"
-		cellpadding="0" cellspacing="0" bordercolor="#D6D3CE"
-		background="images/bottom.jpg">
+		cellpadding="0" cellspacing="0" bordercolor="#D6D3CE" background="images/bottom.jpg">
 
 		<form action="" id="form1" name="form1" method="post">
 			<input type="hidden" name="method" value="sendMessage"/>
 			<tr>
 				<td height="30" align="left">&nbsp;</td>
 				<td height="37" align="left">
-				<input name="from" type="hidden" value="${existUser.username}">[${existUser.username} ]对 
+				<input name="from" type="hidden" value="${existUser.realname}">[${existUser.realname} ]对 
 				<input name="to" type="text" value="" size="35" readonly="readonly"> 表情 
 				<select name="face" class="wenbenkuang">
 						<option value="无表情的">无表情的</option>

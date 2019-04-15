@@ -30,6 +30,20 @@ public class User implements HttpSessionBindingListener{
 		this.type = type;
 	}
 	
+	
+	
+	public User(String id, String usernum, String password, String realname,
+			int age, String sex, String type) {
+		super();
+		this.id = id;
+		this.usernum = usernum;
+		this.password = password;
+		this.realname = realname;
+		this.age = age;
+		this.sex = sex;
+		this.type = type;
+	}
+
 	public String getUsernum() {
 		return usernum;
 	}

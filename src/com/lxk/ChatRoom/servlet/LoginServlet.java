@@ -3,6 +3,7 @@ package com.lxk.ChatRoom.servlet;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.jms.Session;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -38,8 +39,9 @@ public class LoginServlet extends BaseServlet {
 					System.out.println("zhengque");
 					System.out.println(existUser);
 //					request.getSession().invalidate();//如果用户第二次登录就将第一次登录的session销毁
-					//并且如果在在线用户列表中存在也需要销毁
+//					//并且如果在在线用户列表中存在也需要销毁
 //					Map<User,HttpSession> userMap = (Map<User,HttpSession>) getServletContext().getAttribute("userMap");
+//					System.out.println("userMap:"+userMap);
 //					if(userMap.containsKey(existUser)){
 //						HttpSession session = userMap.get(existUser);
 //						session.invalidate();
