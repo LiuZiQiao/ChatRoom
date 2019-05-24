@@ -1,8 +1,10 @@
 package com.lxk.ChatRoom.servlet;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -59,5 +61,35 @@ public class UserServlet extends BaseServlet {
 			response.getWriter().println(message);
 		}
 		return null;
+	}
+	
+	
+	/**
+	 * 发送聊天内容
+	 * @throws IOException 
+	 */
+	public String sendMessage(HttpServletRequest req,HttpServletResponse resp) throws IOException{
+		// 1.接收数据 。
+		System.out.println("sendMessage invoke....");
+		String from = req.getParameter("from"); // 发言人
+		String face = req.getParameter("face"); // 表情
+		String to = req.getParameter("to"); // 接收者
+		String color = req.getParameter("color"); // 字体颜色
+		String content = req.getParameter("content"); // 发言内容
+		// 发言时间 正常情况下使用SimpleDateFormat
+		String sendTime = new Date().toLocaleString(); // 发言时间
+		// 获得ServletContext对象.
+		ServletContext application = getServletContext();
+		//  从ServletContext中获取消息
+		String sourceMessage = (String) application.getAttribute("message");
+		// 拼接发言的内容:xx 对 yy 说 xxx
+		sourceMessage += "<font color='blue'><strong>" + from
+				+ "</strong></font><font color='#CC0000'>" + face
+				+ "</font>对<font color='green'>[" + to + "]</font>说："
+				+ "<font color='" + color + "'>" + content + "</font>（"
+				+ sendTime + "）<br>";
+		// 将消息存入到application的范围
+		application.setAttribute("message", sourceMessage);
+		return getMessage(req, resp);
 	}
 }

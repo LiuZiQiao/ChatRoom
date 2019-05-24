@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <html >
 <title>聊天室</title>
 <link href="CSS/style.css" rel="stylesheet">
@@ -19,7 +20,7 @@
 </script>
 <body>
 	<br>
-	<center><h3 style="color:red;">${ msg }</h3></center>
+	<center><h3 style="color:red;">${msg}</h3></center>
 	<form id="login" name="login" method="post" action="servlet/LoginServlet" onSubmit="return check()">
 		<input type="hidden" name="method" value="login">
 		<table width="371" height="230" border="0" align="center" cellpadding="0" cellspacing="0" background="images/login.jpg">

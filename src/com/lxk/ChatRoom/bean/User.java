@@ -1,5 +1,6 @@
 package com.lxk.ChatRoom.bean;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -18,7 +19,11 @@ public class User implements HttpSessionBindingListener{
 	
 	
 	public User() {}
-	
+	public User(String usernum,String password)
+	{
+		this.usernum = usernum;
+		this.password = password;
+	}
 	public User(String usernum, String password, String realname,
 			int age, String sex, String type) {
 		super();
@@ -155,18 +160,30 @@ public class User implements HttpSessionBindingListener{
 			return false;
 		return true;
 	}
+	
+//	public void valueBound(HttpSessionBindingEvent event) {
+//		HttpSession session = event.getSession();
+//
+//		@SuppressWarnings("unchecked")
+//		Map<User, HttpSession> userMap = new HashMap<>();
+//		userMap.put(this, session);
+//		session.getServletContext().setAttribute("userMap", userMap);
+//		System.out.println("User.valueBound():"+userMap);
+//		
+//	}
 
-	@Override
 	public void valueBound(HttpSessionBindingEvent event) {
-		System.out.println(getRealname()+"进入了聊天室");
+		System.out.println("进入了....");
 		HttpSession session = event.getSession();
-		Map<User, HttpSession> userMap = (Map<User, HttpSession>) session.getServletContext().getAttribute("userMap");
-		userMap.put(this, session);
-	}
 
-	@Override
+		@SuppressWarnings("unchecked")
+		Map<User, HttpSession> userMap = (Map<User, HttpSession>) session
+				.getServletContext().getAttribute("userMap");
+		userMap.put(this, session);
+		System.out.println("User.valueBound():"+userMap);
+	}
+	
 	public void valueUnbound(HttpSessionBindingEvent event) {
-		// TODO Auto-generated method stub
 		System.out.println(getRealname()+"退出了");
 		HttpSession session = event.getSession();
 		Map<User, HttpSession> userMap = (Map<User, HttpSession>) session.getServletContext().getAttribute("userMap");

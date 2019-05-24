@@ -14,7 +14,7 @@ public class UserDaoImpl implements UserDao {
 	public User login(User user) {
 		QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
 		
-		String sql = "select*from user where usernum=? and password=?";
+		String sql = "SELECT * FROM USER WHERE usernum=? AND PASSWORD=?";
 		User existUser;
 		try {
 			existUser = queryRunner.query(sql, new BeanHandler<User>(User.class),user.getUsernum(),user.getPassword());
@@ -24,7 +24,6 @@ public class UserDaoImpl implements UserDao {
 			e.printStackTrace();
 			throw new RuntimeException("µÇÂ¼Ê§°Ü");
 		}
-		
 		return existUser;
 	}
 
