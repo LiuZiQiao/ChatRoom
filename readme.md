@@ -2,16 +2,16 @@
 
 ## 项目描述
 
-基于Servlet+JSP+JavaBean+JDBC搭建的web端聊天室
+基于javeweb开发的B/S群聊系统，实现多人聊天功能
 
 ## 采用技术
 
-Servlet+JSP+JavaBean+JDBC的MVC模式
+系统设计：采用Servlet+JSP+JavaBean+JDBC
 
 ## 实现功能
 
-实现用户登录，一对多，多对一的聊天功能，管理员踢人的功能，在线用户展示的功能
+实现用户的注册，登录，一对多、多对一的聊天功能，管理员踢下线。
 
 ## 页面展示
 
-![1558676914347](./01.png)
+![页面](./01.png)
